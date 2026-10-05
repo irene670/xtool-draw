@@ -1,0 +1,6 @@
+import {sqliteTable,text,integer,index,uniqueIndex} from "drizzle-orm/sqlite-core";
+export const stageSettings=sqliteTable("stage_settings",{id:text("id").primaryKey(),config:text("config").notNull(),stock:text("stock").notNull(),revision:integer("revision").notNull().default(0),activeRound:text("active_round"),operation:text("operation")});
+export const rounds=sqliteTable("rounds",{id:text("id").primaryKey(),sequence:integer("sequence").notNull(),createdAt:integer("created_at").notNull(),drawnAt:integer("drawn_at"),completedAt:integer("completed_at"),day:text("day").notNull(),status:text("status").notNull(),snapshot:text("snapshot").notNull(),outcome:text("outcome"),drawNonce:text("draw_nonce"),note:text("note").notNull().default("")},t=>[index("idx_rounds_day").on(t.day),uniqueIndex("idx_rounds_sequence").on(t.sequence)]);
+export const secrets=sqliteTable("stage_secrets",{id:text("id").primaryKey(),salt:text("salt").notNull(),hash:text("hash").notNull()});
+export const sessions=sqliteTable("stage_sessions",{tokenHash:text("token_hash").primaryKey(),role:text("role").notNull(),expiresAt:integer("expires_at").notNull()});
+export const attempts=sqliteTable("login_attempts",{bucket:text("bucket").primaryKey(),count:integer("count").notNull(),expiresAt:integer("expires_at").notNull()});
