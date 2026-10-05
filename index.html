@@ -3,17 +3,131 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="refresh" content="0;url=https://o1-live-stage.woodywoodmall.chatgpt.site">
-<title>xtool 幸運輪大抽獎</title>
+<meta name="theme-color" content="#101010">
+<title>xtool 幸運輪活動中心</title>
 <style>
-html,body{height:100%;margin:0;background:#111;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
-main{height:100%;display:grid;place-items:center;text-align:center;padding:32px;box-sizing:border-box}
-.card{max-width:720px}.brand{font-size:20px;letter-spacing:.08em;color:#ff9a63;margin-bottom:18px}
-h1{font-size:clamp(38px,7vw,76px);margin:0 0 18px;line-height:1.15}
-p{color:#aaa;line-height:1.7}
-a{display:inline-flex;margin-top:20px;padding:18px 28px;border-radius:10px;background:#ff712f;color:#111;text-decoration:none;font-weight:700;font-size:20px}
+:root{--bg:#101010;--panel:#191714;--line:#ffffff18;--muted:#9c9188;--orange:#ff712f;--cream:#f5eee8;--shadow:0 24px 80px #0009}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--cream);font-family:Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}.hidden{display:none!important}
+.app{position:fixed;inset:0;display:flex;flex-direction:column;background:radial-gradient(circle at 78% 28%,#4d251922,transparent 38%),#101010}
+.topbar{height:88px;flex:0 0 88px;margin:0 4%;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:18px}.brand .xtool{font-weight:900;font-size:38px;letter-spacing:-2px}.brand i{width:1px;height:27px;background:#ffffff32}.brand b{font-size:17px;letter-spacing:.12em;color:#b3a69b}
+.top-actions{display:flex;gap:8px}.icon-btn,.ghost-btn,.outline-btn,.primary-btn{border-radius:8px;border:1px solid #463b33;background:#1a1715;color:#ddd3cb;min-height:48px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;gap:9px}.icon-btn{width:48px;padding:0}.ghost-btn{border-color:transparent;background:transparent}.outline-btn:hover,.ghost-btn:hover,.icon-btn:hover{background:#28221e}.primary-btn{background:var(--orange);border-color:#ff925a;color:#16100d;font-weight:800}.primary-btn:hover{background:#ff8750}
+.view{flex:1;min-height:0;overflow:hidden}.menu-view{padding:38px 6% 24px;display:flex;flex-direction:column}.menu-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}.eyebrow{color:#e39a70;font-size:13px;letter-spacing:.18em;margin:0 0 10px}.menu-head h1{font-size:clamp(42px,5vw,82px);margin:0;letter-spacing:-.04em}.menu-head .sub{color:var(--muted);margin-top:12px;font-size:16px}
+.activity-grid{overflow:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding-bottom:20px}.activity-card{min-height:270px;border:1px solid #3d342e;background:#171513;border-radius:16px;padding:28px;display:flex;flex-direction:column;text-align:left;color:inherit;transition:.18s}.activity-card:hover{border-color:#8b5a3d;transform:translateY(-2px)}.activity-card.create{border-style:dashed;background:#151311}.card-kicker{display:flex;justify-content:space-between;color:#9a8c81;font-size:12px;letter-spacing:.1em}.device{font-size:16px;color:#e1a27a;margin:34px 0 12px}.activity-card h2{font-size:clamp(25px,2.2vw,40px);line-height:1.25;margin:0}.card-meta{margin-top:14px;color:#83786f;font-size:13px}.card-enter{margin-top:auto;padding-top:30px;color:#f0b18a;font-weight:700;display:flex;justify-content:space-between}
+.create-plus{height:54px;width:54px;border-radius:50%;border:1px solid #76503a;display:grid;place-items:center;font-size:30px;color:#ef9b67;margin:12px 0 18px}
+.stage-view{display:flex;flex-direction:column}.stage-head{height:84px;flex:0 0 84px;margin:0 4%;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px}.stage-head .center{text-align:center;color:#948980;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage-brand{display:flex;align-items:center;gap:14px}.stage-brand b{font-size:25px}.stage-brand .back{height:42px;width:42px;border:1px solid #3c342e;border-radius:8px;background:#151311;color:#aaa;display:grid;place-items:center;font-size:20px}
+.stage-content{flex:1;min-height:0;display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;padding:28px 5.5%;gap:28px}.stage-copy .small{color:#e3a17b;letter-spacing:.12em;font-size:14px}.stage-copy h1{font-size:clamp(50px,5.5vw,112px);line-height:1.12;letter-spacing:-.05em;margin:22px 0}.stage-copy h1 em{font-style:normal;color:var(--orange)}.stage-copy .desc{font-size:clamp(16px,1.35vw,25px);color:#a79d95;line-height:1.7}.stage-action{margin-top:36px}.stage-action .primary-btn{min-width:320px;height:82px;font-size:27px}.stage-note{font-size:12px;color:#81766e;margin-top:12px}
+.wheel-wrap{height:100%;display:grid;place-items:center}.wheel-shell{position:relative;width:min(100%,calc(100vh - 170px));aspect-ratio:1}.wheel{position:absolute;inset:5%;border-radius:50%;background:conic-gradient(from 0deg,#ed9b7a 0 60deg,#d9b765 60deg 120deg,#70b9a8 120deg 180deg,#78afe1 180deg 240deg,#b0a0db 240deg 300deg,#de98b3 300deg 360deg);border:16px solid #34302d;box-shadow:0 30px 90px #0008,0 0 0 2px #6b4935;transition:transform 5.2s cubic-bezier(.08,.72,.1,1);will-change:transform}.wheel::after{content:"";position:absolute;inset:48%;background:#111;border-radius:50%;box-shadow:0 0 0 92px #151515;border:1px solid #544940}
+.slice-label{position:absolute;left:50%;top:50%;width:42%;height:36px;transform-origin:0 0;display:flex;align-items:center;justify-content:flex-end;padding-right:8%;font-size:clamp(14px,1.35vw,28px);font-weight:800;color:#172126;text-align:right;z-index:2}.pointer{position:absolute;left:50%;top:1.5%;transform:translateX(-50%);width:44px;height:60px;background:#ff7c3b;clip-path:polygon(0 0,100% 0,50% 100%);z-index:5;filter:drop-shadow(0 4px 5px #000)}.hub{position:absolute;inset:37%;border-radius:50%;z-index:4;display:flex;align-items:center;justify-content:center;text-align:center;background:#171717;border:1px solid #58493e;color:#fff;font-weight:800;font-size:clamp(22px,2.4vw,44px);padding:12px}.hub.ready{background:linear-gradient(145deg,#ff8a4d,#f26527);color:#17100c;border-color:#ff9b66}.hub small{display:block;font-size:.35em;letter-spacing:.12em;margin-top:5px}
+.overlay{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.sale-overlay{background:#ff712f;color:#17110d}.sale-overlay .sold{position:absolute;font-weight:900;font-size:28vw;color:#4d250b12}.sale-overlay .bell{font-size:70px;animation:ring .22s ease-in-out 10}.sale-overlay h1{font-size:clamp(76px,12vw,250px);margin:14px 0;letter-spacing:-.06em;z-index:1}.sale-overlay h1 span{color:#fff5eb}.sale-overlay p{font-size:clamp(20px,2vw,42px);z-index:1}.countdown{height:66px;width:66px;border-radius:50%;border:1px solid #69361f66;display:grid;place-items:center;font-size:32px;z-index:1}.result-overlay{background:radial-gradient(circle at 25% 35%,#78afe11b,transparent 40%),radial-gradient(circle at 75% 35%,#b0a0db1b,transparent 40%),#111}.result-overlay .spark{font-size:52px}.result-overlay .congrats{color:#e8ae88;letter-spacing:.18em;font-size:24px}.result-overlay h2{font-size:clamp(40px,6vw,120px);max-width:85%;margin:20px 0}.result-overlay .primary-btn{min-width:330px;height:72px;font-size:24px}
+.modal-backdrop{position:fixed;inset:0;background:#000c;z-index:50;display:grid;place-items:center;padding:18px}.modal{width:min(620px,100%);max-height:calc(100vh - 36px);overflow:auto;background:#191715;border:1px solid #493b31;border-radius:16px;box-shadow:var(--shadow);padding:30px}.modal h2{font-size:28px;margin:0 0 8px}.modal .help{color:#9b8e83;line-height:1.6;margin:0 0 22px}.form-grid{display:grid;gap:16px}.field{display:grid;gap:8px}.field span{font-size:13px;color:#ab9d91}.field input,.field select{height:48px;background:#211c18;color:#f0e6de;border:1px solid #4b3f35;border-radius:7px;padding:0 12px;outline:none}.field input:focus,.field select:focus{border-color:#dc8b52}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.pin-dots{display:flex;justify-content:center;gap:12px;margin:24px 0}.pin-dot{width:58px;height:58px;border:1px solid #4a3e35;border-radius:8px;display:grid;place-items:center;font-size:28px}.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.keypad button{height:54px;background:#211d19;color:#eee;border:1px solid #3b322b;border-radius:7px;font-size:22px}.error{color:#ffad90;font-size:13px;min-height:20px;margin-top:10px}.settings-tabs{display:flex;gap:7px;margin:18px 0}.settings-tabs button{flex:1;height:44px;border:1px solid #3d332c;background:#201c18;color:#a99b90;border-radius:6px}.settings-tabs button.active{border-color:#c8784b;color:#ffb083;background:#322218}.prize-row{display:grid;grid-template-columns:1.5fr 1fr .55fr;gap:10px;margin:10px 0}.prob-total{padding:10px 12px;border:1px solid #3d332c;border-radius:7px;color:#b8aa9f}.prob-total.bad{border-color:#9b4d35;color:#ffaf91}.pin-change{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+@keyframes ring{25%{transform:rotate(14deg)}75%{transform:rotate(-14deg)}}@media(max-width:1050px){.activity-grid{grid-template-columns:repeat(2,1fr)}.stage-head .center{display:none}.stage-head{grid-template-columns:1fr auto}.stage-content{gap:10px}.stage-copy h1{font-size:58px}.top-actions .label{display:none}}@media(orientation:portrait){.stage-content{grid-template-columns:1fr;grid-template-rows:.78fr 1.22fr;text-align:center;padding:18px 6%}.stage-copy{display:flex;flex-direction:column;align-items:center}.stage-copy h1{font-size:clamp(34px,7vw,70px);margin:12px 0}.stage-action{margin-top:18px}.stage-action .primary-btn{height:60px;min-width:260px;font-size:20px}.wheel-shell{width:min(92vw,100%)}.menu-head{align-items:flex-start;flex-direction:column}.activity-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.activity-grid{grid-template-columns:1fr}.topbar{height:74px;flex-basis:74px}.brand .xtool{font-size:31px}.brand i,.brand b{display:none}.menu-view{padding:24px 5%}.menu-head h1{font-size:42px}.activity-card{min-height:210px}.prize-row{grid-template-columns:1fr}.modal{padding:22px}.pin-change{grid-template-columns:1fr}}
 </style>
-<script>location.replace("https://o1-live-stage.woodywoodmall.chatgpt.site");</script>
 </head>
-<body><main><div class="card"><div class="brand">xTool O1</div><h1>xtool 幸運輪大抽獎</h1><p>正在開啟現場抽獎系統…</p><a href="https://o1-live-stage.woodywoodmall.chatgpt.site">立即進入</a></div></main></body>
-</html>
+<body>
+<div id="app" class="app">
+  <div id="menuView" class="view menu-view">
+    <div class="topbar" style="margin:0">
+      <div class="brand"><span class="xtool">xtool</span><i></i><b>EVENT HUB</b></div>
+      <div class="top-actions"><button class="outline-btn" id="newActivityTop"><span>＋</span><span class="label">新增活動</span></button></div>
+    </div>
+    <div class="menu-head">
+      <div><p class="eyebrow">SELECT AN EVENT</p><h1>選擇設備活動</h1><div class="sub">每台設備保留自己的獎品、機率與活動設定。</div></div>
+    </div>
+    <div id="activityGrid" class="activity-grid"></div>
+  </div>
+
+  <div id="stageView" class="view stage-view hidden">
+    <header class="stage-head">
+      <div class="stage-brand"><button class="back" id="backMenu">⌘</button><span class="xtool" style="font-size:32px;font-weight:900">xtool</span><i style="width:1px;height:25px;background:#ffffff30"></i><b id="deviceMark">O1</b></div>
+      <div class="center" id="stageEventName"></div>
+      <div class="top-actions"><button class="icon-btn" id="soundBtn">🔊</button><button class="outline-btn" id="manageBtn">⚙ <span class="label">管理設定</span></button></div>
+    </header>
+    <div class="stage-content">
+      <section class="stage-copy">
+        <div class="small" id="stageEyebrow">成交限定 · 100% 中獎</div>
+        <h1 id="stageTitle"></h1>
+        <div class="desc" id="stageDesc"></div>
+        <div class="stage-action"><button class="primary-btn" id="confirmSale">🔔 確認成交</button><div class="stage-note">由工作人員確認訂單後啟動</div></div>
+      </section>
+      <section class="wheel-wrap">
+        <div class="wheel-shell">
+          <div class="wheel" id="wheel"></div>
+          <div id="labels"></div>
+          <div class="pointer"></div>
+          <button class="hub" id="hub" disabled><span id="hubText">O1<small>OMNI PRINTER</small></span></button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div id="saleOverlay" class="overlay sale-overlay hidden"><div class="sold">SOLD.</div><div class="bell">🔔</div><h1>現場<span>成交！</span></h1><p id="saleText"></p><div class="countdown" id="countdown">5</div></div>
+<div id="resultOverlay" class="overlay result-overlay hidden"><div class="spark">✨</div><div class="congrats">恭喜中獎</div><h2 id="resultPrize"></h2><button class="primary-btn" id="finishResult">完成・回到待機</button></div>
+
+<div id="pinModal" class="modal-backdrop hidden"><div class="modal" style="width:min(430px,100%)"><h2>工作人員驗證</h2><p class="help">請輸入 4 位數 PIN。</p><div class="pin-dots" id="pinDots"></div><div class="keypad" id="keypad"></div><div class="error" id="pinError"></div><button class="primary-btn" style="width:100%;margin-top:6px" id="pinSubmit">驗證</button><button class="ghost-btn" style="width:100%;margin-top:8px" id="pinCancel">取消</button><div style="text-align:center;color:#776d65;font-size:12px;margin-top:15px">預設 PIN：0000</div></div></div>
+
+<div id="createModal" class="modal-backdrop hidden"><div class="modal"><h2>新增設備活動</h2><p class="help">建立後即可設定該設備自己的獎品與機率。</p><div class="form-grid"><label class="field"><span>設備名稱</span><input id="createDevice" placeholder="例如：xTool X1"></label><label class="field"><span>活動名稱</span><input id="createName" placeholder="例如：xTool X1 幸運輪大抽獎"></label><label class="field"><span>建立方式</span><select id="createSource"><option value="">建立空白活動</option></select></label></div><div class="modal-actions"><button class="ghost-btn" id="createCancel">取消</button><button class="primary-btn" id="createSave">建立活動</button></div></div></div>
+
+<div id="settingsModal" class="modal-backdrop hidden"><div class="modal" style="width:min(820px,100%)"><h2>管理設定</h2><p class="help" id="settingsActivityLabel"></p><div class="settings-tabs"><button data-tab="prizes" class="active">獎品與機率</button><button data-tab="event">活動設定</button><button data-tab="security">PIN</button></div>
+<div id="tab-prizes"><div id="prizeEditor"></div><div id="probTotal" class="prob-total"></div></div>
+<div id="tab-event" class="hidden"><div class="form-grid"><label class="field"><span>設備名稱</span><input id="setDevice"></label><label class="field"><span>活動名稱</span><input id="setName"></label><label class="field"><span>成交公告</span><input id="setAnnouncement"></label><label class="field"><span>成交音效音量（0–100）</span><input id="setVolume" type="number" min="0" max="100"></label></div></div>
+<div id="tab-security" class="hidden"><div class="pin-change"><label class="field"><span>目前 PIN</span><input id="oldPin" inputmode="numeric" maxlength="4" type="password"></label><label class="field"><span>新 PIN</span><input id="newPin" inputmode="numeric" maxlength="4" type="password"></label></div></div>
+<div class="error" id="settingsError"></div><div class="modal-actions"><button class="ghost-btn" id="settingsCancel">取消</button><button class="primary-btn" id="settingsSave">儲存設定</button></div></div></div>
+
+<script>
+(()=>{
+const STORAGE="xtool-lucky-wheel-public-v3";
+const SESSION="xtool-lucky-wheel-auth";
+const colors=["#ed9b7a","#d9b765","#70b9a8","#78afe1","#b0a0db","#de98b3"];
+const defaultPrizes=[
+{name:"旋轉軸套件組",short:"旋轉軸套件",weight:5},
+{name:"覆膜機套件組",short:"覆膜機套件",weight:5},
+{name:"CMYK 彩色墨水套裝組",short:"CMYK 彩墨",weight:5},
+{name:"高印量UV白墨二入組",short:"UV 白墨二入",weight:20},
+{name:"高印量UV白墨單入組",short:"UV 白墨單入",weight:25},
+{name:"全套保養套組（一年份）",short:"一年份保養",weight:40}
+];
+const uid=()=>crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
+const makeActivity=(device="xTool O1",name="xtool 幸運輪大抽獎",prizes=defaultPrizes)=>({id:uid(),deviceName:device,eventName:name,announcement:`恭喜現場貴賓完成 ${device} 下訂`,volume:70,announcementSeconds:5,prizes:JSON.parse(JSON.stringify(prizes)),records:[]});
+function initial(){return {pin:"0000",activities:[makeActivity()]}}
+function load(){try{const x=JSON.parse(localStorage.getItem(STORAGE));if(x&&Array.isArray(x.activities)&&x.pin)return x}catch{}return initial()}
+let db=load(),active=null,pinBuffer="",pendingAction=null,rotation=0,phase="idle",audioCtx=null,muted=false;
+const $=id=>document.getElementById(id),show=id=>$(id).classList.remove("hidden"),hide=id=>$(id).classList.add("hidden"),save=()=>localStorage.setItem(STORAGE,JSON.stringify(db));
+save();
+
+function renderMenu(){
+ active=null;show("menuView");hide("stageView");const g=$("activityGrid");g.innerHTML="";
+ db.activities.forEach((a,i)=>{const b=document.createElement("button");b.className="activity-card";b.innerHTML=`<div class="card-kicker"><span>${String(i+1).padStart(2,"0")}</span><span>READY</span></div><div class="device">◉ ${esc(a.deviceName)}</div><h2>${esc(a.eventName)}</h2><div class="card-meta">${a.prizes.length} 個獎項 · 固定機率</div><div class="card-enter"><span>進入活動</span><span>→</span></div>`;b.onclick=()=>openActivity(a.id);g.appendChild(b)});
+ const c=document.createElement("button");c.className="activity-card create";c.innerHTML='<div class="create-plus">＋</div><h2>新增設備活動</h2><div class="card-meta">建立 X1、F2 或其他設備的獨立活動</div><div class="card-enter"><span>開始設定</span><span>⚙</span></div>';c.onclick=()=>requirePin(openCreate);g.appendChild(c)
+}
+function openActivity(id){active=db.activities.find(x=>x.id===id);if(!active)return;hide("menuView");show("stageView");phase="idle";rotation=0;$("wheel").style.transition="none";$("wheel").style.transform="rotate(0deg)";requestAnimationFrame(()=>{$("wheel").style.transition="transform 5.2s cubic-bezier(.08,.72,.1,1)"});renderStage()}
+function renderStage(){if(!active)return;$("deviceMark").textContent=active.deviceName.replace(/^xtool\s*/i,"");$("stageEventName").textContent=active.eventName;$("stageEyebrow").textContent=phase==="idle"?"成交限定 · 100% 中獎":"成交完成 · 專屬幸運時刻";$("stageTitle").innerHTML=phase==="idle"?titleHtml(active.eventName):(phase==="spinning"?'您的好禮，<br><em>即將揭曉。</em>':'這一轉，<br><em>為您喝采。</em>');$("stageDesc").textContent=phase==="idle"?`完成 ${active.deviceName} 下訂，領取專屬好禮。`:(phase==="spinning"?"好運轉動中，請稍候。":"請輕觸轉盤中央，開啟好運。");$("confirmSale").style.display=phase==="idle"?"inline-flex":"none";renderWheel()}
+function titleHtml(t){const low=t.toLowerCase();if(low.startsWith("xtool "))return '<span style="font-size:.58em;color:#f5eee8;display:block;margin-bottom:.16em">xtool</span><em>'+esc(t.slice(6))+'</em>';return "<em>"+esc(t)+"</em>"}
+function renderWheel(){if(!active)return;const labels=$("labels");labels.innerHTML="";active.prizes.forEach((p,i)=>{const el=document.createElement("div");el.className="slice-label";const angle=30+i*60;el.style.transform=`rotate(${angle}deg) translate(8%,-50%)`;el.innerHTML=`<span style="transform:rotate(${angle>90&&angle<270?180:0}deg)">${esc(p.short)}</span>`;labels.appendChild(el)});const hub=$("hub");hub.disabled=phase!=="ready";hub.className="hub"+(phase==="ready"?" ready":"");$("hubText").innerHTML=phase==="ready"?'開始轉動<small>TOUCH TO SPIN</small>':(phase==="spinning"?'好運轉動中':esc(active.deviceName.replace(/^xtool\s*/i,"")))}
+function requirePin(fn){if(sessionStorage.getItem(SESSION)==="1"){fn();return}pendingAction=fn;pinBuffer="";renderPin();show("pinModal")}
+function renderPin(){$("pinDots").innerHTML=[0,1,2,3].map(i=>'<div class="pin-dot">'+(pinBuffer[i]?"●":"")+'</div>').join("");$("pinError").textContent=""}
+function setupKeypad(){const k=$("keypad");[1,2,3,4,5,6,7,8,9,"清除",0,"退格"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{if(x==="清除")pinBuffer="";else if(x==="退格")pinBuffer=pinBuffer.slice(0,-1);else pinBuffer=(pinBuffer+x).slice(0,4);renderPin()};k.appendChild(b)})}
+function checkPin(){if(pinBuffer===db.pin){sessionStorage.setItem(SESSION,"1");hide("pinModal");const f=pendingAction;pendingAction=null;f&&f()}else{$("pinError").textContent="PIN 不正確";pinBuffer="";renderPin()}}
+function openCreate(){$("createDevice").value="";$("createName").value="";const s=$("createSource");s.innerHTML='<option value="">建立空白活動</option>'+db.activities.map(a=>`<option value="${a.id}">複製：${esc(a.deviceName)}｜${esc(a.eventName)}</option>`).join("");show("createModal")}
+function createActivity(){const device=$("createDevice").value.trim(),name=$("createName").value.trim();if(!device||!name)return;let prizes=defaultPrizes;if($("createSource").value){const src=db.activities.find(x=>x.id===$("createSource").value);if(src)prizes=src.prizes}const a=makeActivity(device,name,prizes);db.activities.push(a);save();hide("createModal");renderMenu()}
+function openSettings(){if(!active)return;$("settingsActivityLabel").textContent=active.deviceName+"｜"+active.eventName;$("setDevice").value=active.deviceName;$("setName").value=active.eventName;$("setAnnouncement").value=active.announcement;$("setVolume").value=active.volume;$("oldPin").value="";$("newPin").value="";renderPrizeEditor();show("settingsModal")}
+function renderPrizeEditor(){const box=$("prizeEditor");box.innerHTML="";active.prizes.forEach((p,i)=>{const r=document.createElement("div");r.className="prize-row";r.innerHTML=`<label class="field"><span>獎項 ${i+1}</span><input data-i="${i}" data-k="name" value="${attr(p.name)}"></label><label class="field"><span>轉盤短名</span><input data-i="${i}" data-k="short" maxlength="10" value="${attr(p.short)}"></label><label class="field"><span>機率 %</span><input data-i="${i}" data-k="weight" type="number" min="0" max="100" step=".01" value="${p.weight}"></label>`;box.appendChild(r)});box.querySelectorAll("input").forEach(x=>x.oninput=()=>{const i=+x.dataset.i,k=x.dataset.k;active.prizes[i][k]=k==="weight"?+x.value:x.value;updateProbTotal()});updateProbTotal()}
+function updateProbTotal(){const t=active.prizes.reduce((s,p)=>s+(+p.weight||0),0);$("probTotal").textContent="機率合計 "+(+t.toFixed(2))+"%";$("probTotal").className="prob-total"+(Math.abs(t-100)>.001?" bad":"")}
+function saveSettings(){const total=active.prizes.reduce((s,p)=>s+(+p.weight||0),0);if(Math.abs(total-100)>.001){$("settingsError").textContent="所有獎項機率合計必須等於 100%。";return}const d=$("setDevice").value.trim(),n=$("setName").value.trim(),a=$("setAnnouncement").value.trim();if(!d||!n||!a)return;$("settingsError").textContent="";active.deviceName=d;active.eventName=n;active.announcement=a;active.volume=Math.max(0,Math.min(100,+$("setVolume").value||0));const old=$("oldPin").value,newp=$("newPin").value;if(old||newp){if(old!==db.pin||!/^[0-9]{4}$/.test(newp)){$("settingsError").textContent="目前 PIN 不正確，或新 PIN 不是 4 位數。";return}db.pin=newp;sessionStorage.setItem(SESSION,"1")}save();hide("settingsModal");renderStage()}
+function weightedIndex(){let total=active.prizes.reduce((s,p)=>s+(+p.weight||0),0),r=Math.random()*total;for(let i=0;i<active.prizes.length;i++){r-=+active.prizes[i].weight||0;if(r<0)return i}return active.prizes.length-1}
+function startSale(){requirePin(()=>{unlockAudio();phase="announcement";renderStage();$("saleText").textContent=active.announcement;show("saleOverlay");playOpening(active.volume);let left=5;$("countdown").textContent=left;const timer=setInterval(()=>{$("countdown").textContent=Math.max(1,--left);if(left<=0){clearInterval(timer);hide("saleOverlay");phase="ready";renderStage()}},1000)})}
+function spin(){if(phase!=="ready")return;unlockAudio();phase="spinning";renderStage();playSpin(active.volume);const idx=weightedIndex(),mid=30+idx*60,target=rotation+7*360+(((-mid-rotation)%360+360)%360);rotation=target;$("wheel").style.transform=`rotate(${rotation}deg)`;setTimeout(()=>{const prize=active.prizes[idx];active.records.push({at:Date.now(),prize:prize.name});save();$("resultPrize").textContent=prize.name;playWin(active.volume);show("resultOverlay")},5450)}
+function finish(){hide("resultOverlay");phase="idle";renderStage()}
+function unlockAudio(){if(!audioCtx){const A=window.AudioContext||window.webkitAudioContext;if(A)audioCtx=new A()}audioCtx&&audioCtx.resume()}
+function tone(f,at,len,gain,type="triangle"){if(!audioCtx||muted)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(gain,at+.006);g.gain.exponentialRampToValueAtTime(.0001,at+len);o.connect(g);g.connect(audioCtx.destination);o.start(at);o.stop(at+len+.02)}
+function playOpening(vol){if(!audioCtx||muted)return;const t=audioCtx.currentTime+.02,v=vol/100;const melody=[523,659,784,1047,880,784,659,784,1047,523,659,784,1047,880,784,988];melody.forEach((f,i)=>tone(f,t+i*.27,.22,.055*v));for(let i=0;i<9;i++)tone(i%2?196:131,t+i*.55,.18,.04*v);tone(1047,t+4.35,.62,.08*v);tone(523,t+4.35,.62,.04*v)}
+function playSpin(vol){if(!audioCtx||muted)return;const t=audioCtx.currentTime+.02,v=vol/100,a=[523,659,784,659,587,784,880,784];for(let i=0;i<18;i++)tone(a[i%8],t+i*.25,.13,.022*v)}
+function playWin(vol){if(!audioCtx||muted)return;const t=audioCtx.currentTime+.02,v=vol/100,[a,b,c,d]=[523,659,784,1047];[a,b,c,d,c,b,d].forEach((f,i)=>tone(f,t+i*.22,i===6?.85:.28,.06*v))}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}function attr(s){return esc(s)}
+$("newActivityTop").onclick=()=>requirePin(openCreate);$("backMenu").onclick=renderMenu;$("manageBtn").onclick=()=>requirePin(openSettings);$("confirmSale").onclick=startSale;$("hub").onclick=spin;$("finishResult").onclick=finish;$("soundBtn").onclick=()=>{muted=!muted;$("soundBtn").textContent=muted?"🔇":"🔊";if(!muted){unlockAudio();playWin(active?.volume||70)}};$("pinSubmit").onclick=checkPin;$("pinCancel").onclick=()=>hide("pinModal");$("createCancel").onclick=()=>hide("createModal");$("createSave").onclick=createActivity;$("createDevice").oninput=e=>{if(!$("createName").dataset.touched)$("createName").value=e.target.value.trim()?e.target.value.trim()+" 幸運輪大抽獎":""};$("createName").oninput=()=>{$("createName").dataset.touched="1"};$("settingsCancel").onclick=()=>{hide("settingsModal");renderStage()};$("settingsSave").onclick=saveSettings;document.querySelectorAll(".settings-tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".settings-tabs button").forEach(x=>x.classList.toggle("active",x===b));["prizes","event","security"].forEach(x=>$(`tab-${x}`).classList.toggle("hidden",b.dataset.tab!==x))});
+setupKeypad();renderMenu();
+})();
+</script>
+</body></html>
