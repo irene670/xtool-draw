@@ -11,11 +11,11 @@ export const prizeColor = (id: string) => PRIZE_COLORS[id] || LEGACY_PRIZE_COLOR
 export const DEFAULT_CONFIG: Config = {
  deviceName:"xTool O1",activitySchemaVersion:1,eventName:"xtool 幸運輪大抽獎",eventNameVersion:1,announcement:"恭喜現場貴賓完成 O1 下訂",inviteText:"現在進入成交限定幸運大抽獎",announcementSeconds:5,openingCueVersion:1,prizeCatalogVersion:1,volume:70,mode:"probability",poolNumber:1,
  prizes:[
- {id:"rotary_kit",name:"旋轉軸套件組",shortName:"旋轉軸套件",weight:5,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.rotary_kit},
- {id:"laminator_kit",name:"覆膜機套件組",shortName:"覆膜機套件",weight:5,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.laminator_kit},
+ {id:"rotary_kit",name:"旋轉軸套件組",shortName:"旋轉軸套件",weight:2.5,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.rotary_kit},
+ {id:"laminator_kit",name:"覆膜機套件組",shortName:"覆膜機套件",weight:2.5,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.laminator_kit},
  {id:"cmyk_set",name:"CMYK 彩色墨水套裝組",shortName:"CMYK 彩墨",weight:5,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.cmyk_set},
- {id:"white_double",name:"高印量UV白墨二入組",shortName:"UV 白墨二入",weight:20,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.white_double},
- {id:"white_single",name:"高印量UV白墨單入組",shortName:"UV 白墨單入",weight:25,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.white_single},
+ {id:"white_double",name:"高印量硬白墨二入組",shortName:"硬白墨二入組",weight:20,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.white_double},
+ {id:"white_single",name:"硬白墨一套",shortName:"硬白墨一套",weight:30,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.white_single},
  {id:"care_annual",name:"全套保養套組（一年份）",shortName:"一年份保養",weight:40,quantity:0,cost:null,grand:false,color:PRIZE_COLORS.care_annual}]
 };
 export function blankActivityConfig(deviceName:string,eventName:string):Config{
